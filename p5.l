@@ -9,7 +9,7 @@ int charCount = 0;
 %%
 [a-zA-Z]+   {wordCount++; charCount += yyleng;}
 [ \t]+  {spaceCount++;}
-\n  {lineCount++;spaceCount++; charCount++;}
+\n  {lineCount++;spaceCount++;}
 .   {charCount++;}
 %%
 
