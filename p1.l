@@ -16,8 +16,8 @@
 %}
 
 %%
-\n	{num_lines++; num_words++;}
-[a-zA-Z]+ {num_words++; num_chars += strlen(yytext);}
+\n	{num_lines++;}
+[a-zA-Z]+ {num_words++; num_chars += yyleng;}
 " "	{num_spaces++;}
 .	{num_chars++;}
 %%
