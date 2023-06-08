@@ -16,13 +16,15 @@
 	int num_lines = 0;
 	int num_words = 0;
 	int num_spaces = 0;
-	int num_chars = 0;	
+	int num_chars = 0;
+	int num_tabs = 0;
 %}
 
 %%
 [\n]	{num_lines++;}
 [a-zA-Z]+ {num_words++; num_chars += yyleng;}
 [" "]	{num_spaces++;}
+[\t] {num_tabs++;}
 .	{num_chars++;}
 %%
 /*
