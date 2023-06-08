@@ -16,9 +16,9 @@
 %}
 
 %%
-\n	{num_lines++;}
+[\n]	{num_lines++;}
 [a-zA-Z]+ {num_words++; num_chars += yyleng;}
-" "	{num_spaces++;}
+[" "]	{num_spaces++;}
 .	{num_chars++;}
 %%
 /*
@@ -30,16 +30,13 @@ determine when the end of the input has been reached.
 yytext is a character pointer that is automatically 
 defined by Flex (or Lex) in the generated scanner code
 */
-int yywrap() 
-{
-    return 1;
-}
+int yywrap() {}
 /*
 yylex() start the lexer and then prints out the final counts
 */
 int main()
 {
 	yylex();
-	printf("Lines: %d\nWords: %d\nSpaces: %d\nCharacters: %d\n",num_lines, num_words,num_spaces,num_chars);
+	printf("\nLines: %d\nWords: %d\nSpaces: %d\nCharacters: %d\n",num_lines, num_words,num_spaces,num_chars);
 	return 0;
 }
