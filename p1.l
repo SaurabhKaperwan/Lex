@@ -5,7 +5,11 @@
 	Commands to run this code:
 	lex fileName.l
 	gcc lex.yy.c
+	./a.out
+	   or
 	./a.out < input.txt
+	
+	ctrl+d => to stop
 */
 
 %{
